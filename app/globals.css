@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: #05060b;
+  color: #e9ecfb;
+}
+
+::selection {
+  background: rgba(79, 125, 255, 0.35);
+  color: #ffffff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #05060b;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4f7dff, #a15cff);
+  border-radius: 999px;
+  border: 2px solid #05060b;
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #43e7ff;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.035] backdrop-blur-xl border border-border-glass;
+  }
+
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-white/[0.06] hover:border-border-glassStrong;
+  }
+
+  .section-shell {
+    @apply relative mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.28em] text-accent/80;
+  }
+
+  .heading-gradient {
+    @apply bg-gradient-primary bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-primary
+    px-6 py-3 font-body text-sm font-semibold text-white shadow-glow transition-all duration-300
+    hover:shadow-glowPurple hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-xl border border-border-glassStrong
+    bg-white/[0.03] px-6 py-3 font-body text-sm font-semibold text-ink backdrop-blur-xl transition-all duration-300
+    hover:bg-white/[0.08] hover:-translate-y-0.5 active:translate-y-0;
+  }
+}
+
+/* Background grid */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+}

@@ -1,0 +1,13 @@
+<!--
+  This file exists only so Netlify's build bot can detect the "contact"
+  form at deploy time (Netlify scans static HTML, not React output).
+  It is never linked to or shown to visitors — the real form lives in
+  components/Contact.js and submits to this same form name via fetch.
+-->
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <input type="text" name="subject" />
+  <textarea name="message"></textarea>
+  <input type="text" name="bot-field" />
+</form>
